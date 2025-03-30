@@ -26,12 +26,10 @@ fi
 echo "Iniciando servicios con Docker Compose..."
 docker compose up -d
 
-# Verifica el estado de los contenedores
-echo "Estado de los contenedores:"
-docker compose ps
-
 #PYTHON SETTINGS
-python3 -m venv dw-for-bi-course-env  
-source dw-for-bi-course-env/bin/activate
+python3 -m venv code/dw-for-bi-course-env  
+echo "Python env dw-for-bi-course-env CREATED"
+source code/dw-for-bi-course-env/bin/activate
+echo "dw-for-bi-course-env ENV ACTIVATED"
 pip install --upgrade pip
 pip install -r requirements.txt
