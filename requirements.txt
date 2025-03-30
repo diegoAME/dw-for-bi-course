@@ -1,2 +1,5 @@
 ipykernel
 sqlalchemy
+pandas
+python-dotenv
+psycopg2-binary
