@@ -33,4 +33,5 @@ docker compose ps
 #PYTHON SETTINGS
 python3 -m venv dw-for-bi-course-env  
 source dw-for-bi-course-env/bin/activate
+pip install --upgrade pip
 pip install -r requirements.txt
