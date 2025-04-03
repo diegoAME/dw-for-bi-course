@@ -1,12 +1,26 @@
 services:
-  database:
+  source_database:
     image: postgres:latest
+    container_name: ${SOURCE_CONTAINER_NAME}
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: mypersonalpassword
-      POSTGRES_DB: postgres
+      POSTGRES_USER: ${SOURCE_DB_USER}
+      POSTGRES_PASSWORD: ${SOURCE_DB_PASSWORD}
+      POSTGRES_DB: ${SOURCE_DB_NAME}
     ports:
-      - "5432:5432"
+      - "5432:${SOURCE_DB_PORT}"
     volumes:
       - ./code:/code
     working_dir: /app
+
+  target_database:
+    image: postgres:latest
+    container_name: ${TARGET_CONTAINER_NAME}
+    environment:
+      POSTGRES_USER: ${TARGET_DB_USER}
+      POSTGRES_PASSWORD: ${TARGET_DB_PASSWORD}
+      POSTGRES_DB: ${TARGET_DB_NAME}
+    ports:
+      - "5433:${TARGET_DB_PORT}"
+    volumes:
+      - ./code:/code
+    working_dir: /app    
